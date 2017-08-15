@@ -39,6 +39,7 @@ set :keep_releases, 5
 
 set :linked_files, %w{wp-config.php}
 set :linked_dirs, %w{content/uploads}
+:php70 = "php-fpm"
 
 namespace :deploy do
 
@@ -70,7 +71,7 @@ Disallow: /')
   task :restart_services do
     on roles(:app) do
       sudo :service, :nginx, :restart
-      sudo :service, :php-fpm , :restart
+      sudo :service, :php70 , :restart
     end
   end
   

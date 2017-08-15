@@ -9,7 +9,7 @@ staging:
   host: localhost
   database: chappress_dev
   username: chappress
-  password: chappress_dev
+  password: chappress
 local:
   host: 
   database: 

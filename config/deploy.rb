@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.1
-lock '3.8.1'
+lock '3.9'
 
 ############################################
 # Setup WordPress

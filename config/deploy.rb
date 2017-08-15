@@ -69,8 +69,8 @@ Disallow: /')
   desc "Restart services"
   task :restart_services do
     on roles(:app) do
-      execute "sudo /etc/init.d/php-fpm restart"
-      execute "sudo /etc/init.d/nginx restart"
+      execute "/etc/init.d/php-fpm restart"
+      execute "/etc/init.d/nginx restart"
     end
   end
 

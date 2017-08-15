@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.1
-lock '3.1.0'
+lock '3.8.1'
 
 ############################################
 # Setup WordPress
@@ -13,8 +13,8 @@ set :local_domain, config['development_url']
 # Setup project
 ############################################
 
-set :application, "cu-blogs"
-set :repo_url, "git@github.com:chapmanu/blogs.git"
+set :application, "chappress"
+set :repo_url, "git@github.com:spence-man/blogsCapMix.git"
 set :scm, :git
 
 set :git_strategy, SubmoduleStrategy

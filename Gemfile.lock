@@ -61,8 +61,6 @@ GEM
     sshkit (1.14.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    sshkit-sudo (0.1.0)
-      sshkit (~> 1.8)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
@@ -75,7 +73,6 @@ DEPENDENCIES
   capistrano (~> 3.9)
   colorize
   selenium-connect
-  sshkit-sudo
 
 BUNDLED WITH
    1.15.3

@@ -3,7 +3,7 @@
 ############################################
 
 set :stage, :staging
-set :stage_domain, "http://localhost:5555"
+set :stage_domain, "http://localhost:80"
 server "127.0.0.1", port: "2222", user: "wimops", roles: %w(web app db)
 set :deploy_to, "/home/wimops/staging"
 

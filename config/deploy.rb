@@ -77,7 +77,7 @@ Disallow: /')
   desc "Wp Core Install"
   task :core_install do
     on roles(:app) do
-      execute "cd '#{release_path}/public'; wp core install --url=http://localhost:5555 --title=chap-press --admin_user=chappress --admin_password=password --admin_email=chappress@gmail.com"
+      execute "cd '#{release_path}/public'; wp core install --url=http://localhost:80 --title=chap-press --admin_user=chappress --admin_password=password --admin_email=chappress@gmail.com"
     end
   end
 

@@ -15,7 +15,7 @@
 #############################
 # Configure locations
 #############################
-$production_baseurl = 'http://blogs.chapman.edu';
+$production_baseurl = 'http://localhost';
 
 $server_root = $_SERVER['DOCUMENT_ROOT'];
 chdir($server_root);

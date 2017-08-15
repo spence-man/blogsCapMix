@@ -46,7 +46,7 @@ require './lib/capistrano/submodule_strategy'
 require 'yaml'
 
 # Skip sudo password
-require 'sshkit/sudo'
+#require 'sshkit/sudo'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }

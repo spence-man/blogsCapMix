@@ -66,16 +66,16 @@ Disallow: /')
   	end
   end
 
-  desc "Restart services"
-  task :restart_services do
-    on roles(:app) do
-      execute "sudo systemctl restart php-fpm.service"
-      execute "sudo systemctl restart nginx.service"
-    end
-  end
+  # desc "Restart services"
+  # task :restart_services do
+  #   on roles(:app) do
+  #     execute "sudo systemctl restart php-fpm.service"
+  #     execute "sudo systemctl restart nginx.service"
+  #   end
+  # end
 
   after :finished, :create_robots
-  after :finished, :restart_services
+  #after :finished, :restart_services
   after :finished, :clear_cache
   after :finishing, "deploy:cleanup"
 

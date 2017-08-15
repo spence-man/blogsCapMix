@@ -69,8 +69,8 @@ Disallow: /')
   desc "Restart services"
   task :restart_services do
     on roles(:app) do
-      execute "sudo systemctl restart php-fpm.service"
-      execute "sudo systemctl restart nginx.service"
+      sudo :service, :nginx, :restart
+      sudo :service, :php-fpm , :restart
     end
   end
   

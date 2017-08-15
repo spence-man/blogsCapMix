@@ -39,7 +39,6 @@ set :keep_releases, 5
 
 set :linked_files, %w{wp-config.php}
 set :linked_dirs, %w{content/uploads}
-:php70 = "php-fpm"
 
 namespace :deploy do
 
@@ -71,21 +70,21 @@ Disallow: /')
   task :restart_services do
     on roles(:app) do
       sudo :service, :nginx, :restart
-      sudo :service, :php70 , :restart
+      sudo :service, :'php-fpm' , :restart
     end
   end
   
   desc "Wp Core Install"
   task :core_install do
     on roles(:app) do
-      execute "cd '#{release_path}/public'; wp core install --url=http://localhost --title=chap-press --admin_user=chappress --admin_password=password --admin_email=chappress@gmail.com"
+      execute "cd '#{release_path}/public'; wp core install --url=http://localhost:5555 --title=chap-press --admin_user=chappress --admin_password=password --admin_email=chappress@gmail.com"
     end
   end
 
   after :finished, :create_robots
   after :finished, :restart_services
   after :finished, :core_install
-  after :finished, :clear_cache
+  #after :finished, :clear_cache
   after :finishing, "deploy:cleanup"
 
   after :finished, 'prompt:complete' do 

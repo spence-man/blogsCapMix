@@ -24,7 +24,7 @@ set :git_strategy, SubmoduleStrategy
 ############################################
 
 set :log_level, :debug
-set :use_sudo, false
+set :use_sudo, true
 set :pty, true
 
 set :ssh_options, {
@@ -66,13 +66,13 @@ Disallow: /')
   	end
   end
 
-  # desc "Restart services"
-  # task :restart_services do
-  #   on roles(:app) do
-  #     execute "sudo systemctl restart php-fpm.service"
-  #     execute "sudo systemctl restart nginx.service"
-  #   end
-  # end
+  desc "Restart services"
+  task :restart_services do
+    on roles(:app) do
+      execute "sudo systemctl restart php-fpm.service"
+      execute "sudo systemctl restart nginx.service"
+    end
+  end
   
   desc "Wp Core Install"
   task :core_install do
@@ -82,7 +82,7 @@ Disallow: /')
   end
 
   after :finished, :create_robots
-  #after :finished, :restart_services
+  after :finished, :restart_services
   after :finished, :core_install
   after :finished, :clear_cache
   after :finishing, "deploy:cleanup"

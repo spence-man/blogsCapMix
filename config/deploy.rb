@@ -73,9 +73,17 @@ Disallow: /')
   #     execute "sudo systemctl restart nginx.service"
   #   end
   # end
+  
+  desc "Wp Core Install"
+  task :core_install do
+    on roles(:app) do
+      execute "cd '#{release_path}/current/public'; wp core install --url=http://localhost:5555/ --title=chap-press --admin_user=chappress --admin_password=password --admin_email=chappress@gmail.com"
+    end
+  end
 
   after :finished, :create_robots
   #after :finished, :restart_services
+  after :finished, :core_install
   after :finished, :clear_cache
   after :finishing, "deploy:cleanup"
 

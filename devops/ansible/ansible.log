@@ -1898,3 +1898,545 @@ ansible.cfg.
 2017-08-10 14:40:12,433 p=7668 u=spence |  changed: [chappress-staging.chapman.edu]
 2017-08-10 14:40:12,434 p=7668 u=spence |  PLAY RECAP *************************************************************************************************************************************
 2017-08-10 14:40:12,434 p=7668 u=spence |  chappress-staging.chapman.edu : ok=44   changed=13   unreachable=0    failed=0   
+2017-08-15 18:28:13,837 p=16128 u=spence |  chappress-staging.chapman.edu | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2017-08-15 18:30:27,351 p=16157 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] ***********************************************************
+2017-08-15 18:30:27,381 p=16157 u=spence |  TASK [Gathering Facts] ********************************************************************************
+2017-08-15 18:30:30,445 p=16157 u=spence |  fatal: [chappress-staging.chapman.edu]: FAILED! => {"failed": true, "msg": "Incorrect sudo password"}
+2017-08-15 18:30:30,446 p=16157 u=spence |  	to retry, use: --limit @/Users/spence/Downloads/blogsCapMix/devops/ansible/provision.retry
+
+2017-08-15 18:30:30,446 p=16157 u=spence |  PLAY RECAP ********************************************************************************************
+2017-08-15 18:30:30,446 p=16157 u=spence |  chappress-staging.chapman.edu : ok=0    changed=0    unreachable=0    failed=1   
+2017-08-15 18:33:15,702 p=16193 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] ***********************************************************
+2017-08-15 18:33:15,733 p=16193 u=spence |  TASK [Gathering Facts] ********************************************************************************
+2017-08-15 18:33:24,606 p=16193 u=spence |  ok: [localhost]
+2017-08-15 18:33:24,610 p=16193 u=spence |  TASK [common : Install Common Packages] ***************************************************************
+2017-08-15 18:34:21,261 p=16193 u=spence |  fatal: [localhost]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"_ansible_item_result": true, "item": ["ruby", "git"], "msg": "Failed to connect to the host via ssh: Shared connection to localhost closed.\r\n", "unreachable": true}]}
+2017-08-15 18:34:21,262 p=16193 u=spence |  failed: [localhost] (item=[u'ruby', u'git']) => {"item": ["ruby", "git"], "msg": "Failed to connect to the host via ssh: Shared connection to localhost closed.\r\n", "unreachable": true}
+2017-08-15 18:34:21,264 p=16193 u=spence |  	to retry, use: --limit @/Users/spence/Downloads/blogsCapMix/devops/ansible/provision.retry
+
+2017-08-15 18:34:21,264 p=16193 u=spence |  PLAY RECAP ********************************************************************************************
+2017-08-15 18:34:21,264 p=16193 u=spence |  localhost                  : ok=1    changed=0    unreachable=1    failed=0   
+2017-08-15 18:38:05,732 p=16258 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] ***********************************************************
+2017-08-15 18:38:05,763 p=16258 u=spence |  TASK [Gathering Facts] ********************************************************************************
+2017-08-15 18:38:16,060 p=16258 u=spence |  ok: [localhost]
+2017-08-15 18:38:16,064 p=16258 u=spence |  TASK [common : Install Common Packages] ***************************************************************
+2017-08-15 18:39:00,009 p=16258 u=spence |  changed: [localhost] => (item=[u'ruby', u'git'])
+2017-08-15 18:39:00,014 p=16258 u=spence |  TASK [ssl : Ensure OpenSSL is installed] **************************************************************
+2017-08-15 18:39:01,989 p=16258 u=spence |  ok: [localhost]
+2017-08-15 18:39:01,993 p=16258 u=spence |  TASK [ssl : Ensure ssl folder exist] ******************************************************************
+2017-08-15 18:39:09,415 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:39:09,421 p=16258 u=spence |  TASK [ssl : stat] *************************************************************************************
+2017-08-15 18:39:09,713 p=16258 u=spence |  ok: [localhost -> localhost]
+2017-08-15 18:39:09,719 p=16258 u=spence |  TASK [ssl : stat] *************************************************************************************
+2017-08-15 18:39:09,889 p=16258 u=spence |  ok: [localhost -> localhost]
+2017-08-15 18:39:09,894 p=16258 u=spence |  TASK [ssl : Test if privkey file is needed] ***********************************************************
+2017-08-15 18:39:09,911 p=16258 u=spence |  skipping: [localhost]
+2017-08-15 18:39:09,915 p=16258 u=spence |  TASK [ssl : Test if cert file is needed] **************************************************************
+2017-08-15 18:39:09,932 p=16258 u=spence |  skipping: [localhost]
+2017-08-15 18:39:09,936 p=16258 u=spence |  TASK [ssl : Creates Private directory] ****************************************************************
+2017-08-15 18:39:16,935 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:39:16,939 p=16258 u=spence |  TASK [ssl : Generate RSA key] *************************************************************************
+2017-08-15 18:39:26,529 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:39:26,533 p=16258 u=spence |  TASK [ssl : RSA key file ownership] *******************************************************************
+2017-08-15 18:39:28,627 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:39:28,631 p=16258 u=spence |  TASK [ssl : Generate CSR] *****************************************************************************
+2017-08-15 18:39:35,861 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:39:35,866 p=16258 u=spence |  TASK [ssl : CSR file ownership] ***********************************************************************
+2017-08-15 18:39:49,462 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:39:49,466 p=16258 u=spence |  TASK [ssl : Generate self-signed SSL certificate] *****************************************************
+2017-08-15 18:39:51,435 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:39:51,439 p=16258 u=spence |  TASK [ssl : Self-signed SSL certificate file ownership] ***********************************************
+2017-08-15 18:40:03,504 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:40:03,509 p=16258 u=spence |  TASK [ssl : Copy SSL private key file (if exists)] ****************************************************
+2017-08-15 18:40:03,526 p=16258 u=spence |  skipping: [localhost]
+2017-08-15 18:40:03,530 p=16258 u=spence |  TASK [ssl : Copy SSL certificate file (if exists)] ****************************************************
+2017-08-15 18:40:03,549 p=16258 u=spence |  skipping: [localhost]
+2017-08-15 18:40:03,552 p=16258 u=spence |  TASK [ssl : Copy SSL certificate data] ****************************************************************
+2017-08-15 18:40:03,577 p=16258 u=spence |  skipping: [localhost] => (item=(censored due to no_log)) 
+2017-08-15 18:40:03,578 p=16258 u=spence |  skipping: [localhost] => (item=(censored due to no_log)) 
+2017-08-15 18:40:03,584 p=16258 u=spence |  TASK [ssl : Generate strong DHE parameter - https://weakdh.org/] **************************************
+2017-08-15 18:41:52,415 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:41:52,418 p=16258 u=spence |  TASK [mariadb : Install MariaDB package] **************************************************************
+2017-08-15 18:42:16,018 p=16258 u=spence |  changed: [localhost] => (item=[u'mariadb-server', u'MySQL-python', u'libselinux-python', u'libsemanage-python'])
+2017-08-15 18:42:16,022 p=16258 u=spence |  TASK [mariadb : Enable SELinux at next reboot] ********************************************************
+2017-08-15 18:42:18,065 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:42:18,069 p=16258 u=spence |  TASK [mariadb : Configure SELinux to start mysql on any port] *****************************************
+2017-08-15 18:42:32,281 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:42:32,286 p=16258 u=spence |  TASK [mariadb : Create Mysql configuration file] ******************************************************
+2017-08-15 18:42:48,822 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:42:48,824 p=16258 u=spence |  TASK [mariadb : Create MariaDB log file] **************************************************************
+2017-08-15 18:42:55,842 p=16258 u=spence |  changed: [localhost]
+2017-08-15 18:42:55,847 p=16258 u=spence |  TASK [mariadb : Start MariaDB Service] ****************************************************************
+2017-08-15 18:43:14,534 p=16258 u=spence |  fatal: [localhost]: FAILED! => {"failed": true, "msg": "Timeout (12s) waiting for privilege escalation prompt: "}
+2017-08-15 18:43:14,534 p=16258 u=spence |  RUNNING HANDLER [mariadb : restart mariadb] ***********************************************************
+2017-08-15 18:43:14,535 p=16258 u=spence |  	to retry, use: --limit @/Users/spence/Downloads/blogsCapMix/devops/ansible/provision.retry
+
+2017-08-15 18:43:14,536 p=16258 u=spence |  PLAY RECAP ********************************************************************************************
+2017-08-15 18:43:14,536 p=16258 u=spence |  localhost                  : ok=19   changed=15   unreachable=0    failed=1   
+2017-08-15 18:50:08,560 p=16481 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] ***********************************************************
+2017-08-15 18:50:08,593 p=16481 u=spence |  TASK [Gathering Facts] ********************************************************************************
+2017-08-15 18:50:11,557 p=16481 u=spence |  ok: [localhost]
+2017-08-15 18:50:11,560 p=16481 u=spence |  TASK [common : Install Common Packages] ***************************************************************
+2017-08-15 18:50:18,679 p=16481 u=spence |  ok: [localhost] => (item=[u'ruby', u'git'])
+2017-08-15 18:50:18,684 p=16481 u=spence |  TASK [ssl : Ensure OpenSSL is installed] **************************************************************
+2017-08-15 18:50:25,800 p=16481 u=spence |  ok: [localhost]
+2017-08-15 18:50:25,804 p=16481 u=spence |  TASK [ssl : Ensure ssl folder exist] ******************************************************************
+2017-08-15 18:50:27,780 p=16481 u=spence |  ok: [localhost]
+2017-08-15 18:50:27,786 p=16481 u=spence |  TASK [ssl : stat] *************************************************************************************
+2017-08-15 18:50:28,050 p=16481 u=spence |  ok: [localhost -> localhost]
+2017-08-15 18:50:28,056 p=16481 u=spence |  TASK [ssl : stat] *************************************************************************************
+2017-08-15 18:50:28,236 p=16481 u=spence |  ok: [localhost -> localhost]
+2017-08-15 18:50:28,239 p=16481 u=spence |  TASK [ssl : Test if privkey file is needed] ***********************************************************
+2017-08-15 18:50:28,257 p=16481 u=spence |  skipping: [localhost]
+2017-08-15 18:50:28,260 p=16481 u=spence |  TASK [ssl : Test if cert file is needed] **************************************************************
+2017-08-15 18:50:28,277 p=16481 u=spence |  skipping: [localhost]
+2017-08-15 18:50:28,281 p=16481 u=spence |  TASK [ssl : Creates Private directory] ****************************************************************
+2017-08-15 18:53:46,299 p=16481 u=spence |  fatal: [localhost]: FAILED! => {"failed": true, "msg": "Timeout (12s) waiting for privilege escalation prompt: "}
+2017-08-15 18:53:46,301 p=16481 u=spence |  	to retry, use: --limit @/Users/spence/Downloads/blogsCapMix/devops/ansible/provision.retry
+
+2017-08-15 18:53:46,301 p=16481 u=spence |  PLAY RECAP ********************************************************************************************
+2017-08-15 18:53:46,301 p=16481 u=spence |  localhost                  : ok=6    changed=0    unreachable=0    failed=1   
+2017-08-16 09:00:41,883 p=1448 u=spence |  localhost | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2017-08-16 09:00:56,073 p=1476 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] **********************************************
+2017-08-16 09:00:56,104 p=1476 u=spence |  TASK [Gathering Facts] *******************************************************************
+2017-08-16 09:00:58,273 p=1476 u=spence |  ok: [localhost]
+2017-08-16 09:00:58,276 p=1476 u=spence |  TASK [common : Install Common Packages] **************************************************
+2017-08-16 09:01:28,331 p=1476 u=spence |  changed: [localhost] => (item=[u'ruby', u'git'])
+2017-08-16 09:01:28,335 p=1476 u=spence |  TASK [ssl : Ensure OpenSSL is installed] *************************************************
+2017-08-16 09:01:30,171 p=1476 u=spence |  ok: [localhost]
+2017-08-16 09:01:30,174 p=1476 u=spence |  TASK [ssl : Ensure ssl folder exist] *****************************************************
+2017-08-16 09:01:32,093 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:01:32,099 p=1476 u=spence |  TASK [ssl : stat] ************************************************************************
+2017-08-16 09:01:32,377 p=1476 u=spence |  ok: [localhost -> localhost]
+2017-08-16 09:01:32,384 p=1476 u=spence |  TASK [ssl : stat] ************************************************************************
+2017-08-16 09:01:32,552 p=1476 u=spence |  ok: [localhost -> localhost]
+2017-08-16 09:01:32,557 p=1476 u=spence |  TASK [ssl : Test if privkey file is needed] **********************************************
+2017-08-16 09:01:32,574 p=1476 u=spence |  skipping: [localhost]
+2017-08-16 09:01:32,578 p=1476 u=spence |  TASK [ssl : Test if cert file is needed] *************************************************
+2017-08-16 09:01:32,593 p=1476 u=spence |  skipping: [localhost]
+2017-08-16 09:01:32,597 p=1476 u=spence |  TASK [ssl : Creates Private directory] ***************************************************
+2017-08-16 09:01:34,448 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:01:34,451 p=1476 u=spence |  TASK [ssl : Generate RSA key] ************************************************************
+2017-08-16 09:01:41,178 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:01:41,183 p=1476 u=spence |  TASK [ssl : RSA key file ownership] ******************************************************
+2017-08-16 09:01:42,929 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:01:42,933 p=1476 u=spence |  TASK [ssl : Generate CSR] ****************************************************************
+2017-08-16 09:01:44,840 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:01:44,844 p=1476 u=spence |  TASK [ssl : CSR file ownership] **********************************************************
+2017-08-16 09:01:46,644 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:01:46,648 p=1476 u=spence |  TASK [ssl : Generate self-signed SSL certificate] ****************************************
+2017-08-16 09:01:48,399 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:01:48,403 p=1476 u=spence |  TASK [ssl : Self-signed SSL certificate file ownership] **********************************
+2017-08-16 09:01:50,187 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:01:50,192 p=1476 u=spence |  TASK [ssl : Copy SSL private key file (if exists)] ***************************************
+2017-08-16 09:01:50,209 p=1476 u=spence |  skipping: [localhost]
+2017-08-16 09:01:50,212 p=1476 u=spence |  TASK [ssl : Copy SSL certificate file (if exists)] ***************************************
+2017-08-16 09:01:50,230 p=1476 u=spence |  skipping: [localhost]
+2017-08-16 09:01:50,234 p=1476 u=spence |  TASK [ssl : Copy SSL certificate data] ***************************************************
+2017-08-16 09:01:50,257 p=1476 u=spence |  skipping: [localhost] => (item=(censored due to no_log)) 
+2017-08-16 09:01:50,258 p=1476 u=spence |  skipping: [localhost] => (item=(censored due to no_log)) 
+2017-08-16 09:01:50,262 p=1476 u=spence |  TASK [ssl : Generate strong DHE parameter - https://weakdh.org/] *************************
+2017-08-16 09:01:55,873 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:01:55,877 p=1476 u=spence |  TASK [mariadb : Install MariaDB package] *************************************************
+2017-08-16 09:02:11,779 p=1476 u=spence |  changed: [localhost] => (item=[u'mariadb-server', u'MySQL-python', u'libselinux-python', u'libsemanage-python'])
+2017-08-16 09:02:11,784 p=1476 u=spence |  TASK [mariadb : Create Mysql configuration file] *****************************************
+2017-08-16 09:02:17,642 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:02:17,645 p=1476 u=spence |  TASK [mariadb : Create MariaDB log file] *************************************************
+2017-08-16 09:02:19,832 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:02:19,836 p=1476 u=spence |  TASK [mariadb : Start MariaDB Service] ***************************************************
+2017-08-16 09:02:24,190 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:02:24,195 p=1476 u=spence |  TASK [nginx : Define nginx_user.] ********************************************************
+2017-08-16 09:02:24,217 p=1476 u=spence |  ok: [localhost]
+2017-08-16 09:02:24,220 p=1476 u=spence |  TASK [nginx : Enable nginx repo.] ********************************************************
+2017-08-16 09:02:35,157 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:02:35,161 p=1476 u=spence |  TASK [nginx : Ensure nginx is installed.] ************************************************
+2017-08-16 09:02:40,839 p=1476 u=spence |  changed: [localhost]
+2017-08-16 09:02:40,843 p=1476 u=spence |  TASK [nginx : Copy nginx root welcome configuration] *************************************
+2017-08-16 09:07:16,783 p=1476 u=spence |  fatal: [localhost]: FAILED! => {"failed": true, "msg": "Timeout (12s) waiting for privilege escalation prompt: "}
+2017-08-16 09:07:16,783 p=1476 u=spence |  RUNNING HANDLER [mariadb : restart mariadb] **********************************************
+2017-08-16 09:07:16,785 p=1476 u=spence |  	to retry, use: --limit @/Users/spence/Downloads/blogsCapMix/devops/ansible/provision.retry
+
+2017-08-16 09:07:16,785 p=1476 u=spence |  PLAY RECAP *******************************************************************************
+2017-08-16 09:07:16,785 p=1476 u=spence |  localhost                  : ok=21   changed=16   unreachable=0    failed=1   
+2017-08-16 09:20:24,097 p=1718 u=spence |   [ERROR]: User interrupted execution
+
+2017-08-16 09:20:38,938 p=1735 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 09:20:38,969 p=1735 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 09:20:41,760 p=1735 u=spence |  ok: [localhost]
+2017-08-16 09:20:41,764 p=1735 u=spence |  TASK [nginx : Define nginx_user.] ***********************************************************************************
+2017-08-16 09:20:41,787 p=1735 u=spence |  ok: [localhost]
+2017-08-16 09:20:41,791 p=1735 u=spence |  TASK [nginx : Enable nginx repo.] ***********************************************************************************
+2017-08-16 09:20:46,641 p=1735 u=spence |  ok: [localhost]
+2017-08-16 09:20:46,645 p=1735 u=spence |  TASK [nginx : Ensure nginx is installed.] ***************************************************************************
+2017-08-16 09:20:48,566 p=1735 u=spence |  ok: [localhost]
+2017-08-16 09:20:48,569 p=1735 u=spence |  TASK [nginx : Copy nginx root welcome configuration] ****************************************************************
+2017-08-16 09:20:54,027 p=1735 u=spence |  changed: [localhost]
+2017-08-16 09:20:54,030 p=1735 u=spence |  TASK [nginx : Copy standard nginx default conf] *********************************************************************
+2017-08-16 09:21:11,487 p=1735 u=spence |  fatal: [localhost]: FAILED! => {"failed": true, "msg": "Timeout (12s) waiting for privilege escalation prompt: "}
+2017-08-16 09:21:11,487 p=1735 u=spence |  RUNNING HANDLER [nginx : restart nginx] *****************************************************************************
+2017-08-16 09:21:11,489 p=1735 u=spence |  	to retry, use: --limit @/Users/spence/Downloads/blogsCapMix/devops/ansible/provision.retry
+
+2017-08-16 09:21:11,489 p=1735 u=spence |  PLAY RECAP **********************************************************************************************************
+2017-08-16 09:21:11,489 p=1735 u=spence |  localhost                  : ok=5    changed=1    unreachable=0    failed=1   
+2017-08-16 09:21:27,734 p=1839 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 09:21:27,761 p=1839 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 09:22:23,734 p=1839 u=spence |   [ERROR]: User interrupted execution
+
+2017-08-16 09:23:02,744 p=1866 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 09:23:02,774 p=1866 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 09:23:12,964 p=1866 u=spence |   [ERROR]: User interrupted execution
+
+2017-08-16 09:24:11,923 p=1886 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 09:24:11,951 p=1886 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 09:24:12,724 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:12,728 p=1886 u=spence |  TASK [common : Install Common Packages] *****************************************************************************
+2017-08-16 09:24:13,391 p=1886 u=spence |  ok: [localhost] => (item=[u'ruby', u'git'])
+2017-08-16 09:24:13,395 p=1886 u=spence |  TASK [ssl : Ensure OpenSSL is installed] ****************************************************************************
+2017-08-16 09:24:13,764 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:13,768 p=1886 u=spence |  TASK [ssl : Ensure ssl folder exist] ********************************************************************************
+2017-08-16 09:24:14,125 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:14,131 p=1886 u=spence |  TASK [ssl : stat] ***************************************************************************************************
+2017-08-16 09:24:14,401 p=1886 u=spence |  ok: [localhost -> localhost]
+2017-08-16 09:24:14,407 p=1886 u=spence |  TASK [ssl : stat] ***************************************************************************************************
+2017-08-16 09:24:14,575 p=1886 u=spence |  ok: [localhost -> localhost]
+2017-08-16 09:24:14,578 p=1886 u=spence |  TASK [ssl : Test if privkey file is needed] *************************************************************************
+2017-08-16 09:24:14,595 p=1886 u=spence |  skipping: [localhost]
+2017-08-16 09:24:14,598 p=1886 u=spence |  TASK [ssl : Test if cert file is needed] ****************************************************************************
+2017-08-16 09:24:14,614 p=1886 u=spence |  skipping: [localhost]
+2017-08-16 09:24:14,618 p=1886 u=spence |  TASK [ssl : Creates Private directory] ******************************************************************************
+2017-08-16 09:24:14,872 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:14,876 p=1886 u=spence |  TASK [ssl : Generate RSA key] ***************************************************************************************
+2017-08-16 09:24:15,236 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:15,239 p=1886 u=spence |  TASK [ssl : RSA key file ownership] *********************************************************************************
+2017-08-16 09:24:15,501 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:15,504 p=1886 u=spence |  TASK [ssl : Generate CSR] *******************************************************************************************
+2017-08-16 09:24:15,757 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:15,760 p=1886 u=spence |  TASK [ssl : CSR file ownership] *************************************************************************************
+2017-08-16 09:24:16,019 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:16,023 p=1886 u=spence |  TASK [ssl : Generate self-signed SSL certificate] *******************************************************************
+2017-08-16 09:24:16,282 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:16,286 p=1886 u=spence |  TASK [ssl : Self-signed SSL certificate file ownership] *************************************************************
+2017-08-16 09:24:16,540 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:16,544 p=1886 u=spence |  TASK [ssl : Copy SSL private key file (if exists)] ******************************************************************
+2017-08-16 09:24:16,562 p=1886 u=spence |  skipping: [localhost]
+2017-08-16 09:24:16,565 p=1886 u=spence |  TASK [ssl : Copy SSL certificate file (if exists)] ******************************************************************
+2017-08-16 09:24:16,587 p=1886 u=spence |  skipping: [localhost]
+2017-08-16 09:24:16,592 p=1886 u=spence |  TASK [ssl : Copy SSL certificate data] ******************************************************************************
+2017-08-16 09:24:16,615 p=1886 u=spence |  skipping: [localhost] => (item=(censored due to no_log)) 
+2017-08-16 09:24:16,618 p=1886 u=spence |  skipping: [localhost] => (item=(censored due to no_log)) 
+2017-08-16 09:24:16,622 p=1886 u=spence |  TASK [ssl : Generate strong DHE parameter - https://weakdh.org/] ****************************************************
+2017-08-16 09:24:16,884 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:16,888 p=1886 u=spence |  TASK [mariadb : Install MariaDB package] ****************************************************************************
+2017-08-16 09:24:17,267 p=1886 u=spence |  ok: [localhost] => (item=[u'mariadb-server', u'MySQL-python', u'libselinux-python', u'libsemanage-python'])
+2017-08-16 09:24:17,273 p=1886 u=spence |  TASK [mariadb : Create Mysql configuration file] ********************************************************************
+2017-08-16 09:24:17,990 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:17,993 p=1886 u=spence |  TASK [mariadb : Create MariaDB log file] ****************************************************************************
+2017-08-16 09:24:18,239 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:24:18,243 p=1886 u=spence |  TASK [mariadb : Start MariaDB Service] ******************************************************************************
+2017-08-16 09:24:18,613 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:18,617 p=1886 u=spence |  TASK [nginx : Define nginx_user.] ***********************************************************************************
+2017-08-16 09:24:18,640 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:18,644 p=1886 u=spence |  TASK [nginx : Enable nginx repo.] ***********************************************************************************
+2017-08-16 09:24:19,335 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:19,338 p=1886 u=spence |  TASK [nginx : Ensure nginx is installed.] ***************************************************************************
+2017-08-16 09:24:19,698 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:19,701 p=1886 u=spence |  TASK [nginx : Copy nginx root welcome configuration] ****************************************************************
+2017-08-16 09:24:20,405 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:20,408 p=1886 u=spence |  TASK [nginx : Copy standard nginx default conf] *********************************************************************
+2017-08-16 09:24:21,107 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:21,111 p=1886 u=spence |  TASK [nginx : Ensure nginx is started and enabled to start at boot.] ************************************************
+2017-08-16 09:24:21,468 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:24:21,471 p=1886 u=spence |  TASK [php70 : Install requires package for use yum module] **********************************************************
+2017-08-16 09:24:21,838 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:24:21,842 p=1886 u=spence |  TASK [php70 : Install epel from remote repo on CentOS 7] ************************************************************
+2017-08-16 09:24:23,477 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:24:23,481 p=1886 u=spence |  TASK [php70 : Install remi from remote repo on CentOS 7] ************************************************************
+2017-08-16 09:24:25,053 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:24:25,057 p=1886 u=spence |  TASK [php70 : get ius repo install script] **************************************************************************
+2017-08-16 09:24:26,866 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:24:26,870 p=1886 u=spence |  TASK [php70 : Install ius from remote repo] *************************************************************************
+2017-08-16 09:24:51,702 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:24:51,706 p=1886 u=spence |  TASK [php70 : upgrade all packages] *********************************************************************************
+2017-08-16 09:27:10,241 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:27:10,245 p=1886 u=spence |  TASK [php70 : Install PHP Packages] *********************************************************************************
+2017-08-16 09:28:57,797 p=1886 u=spence |  changed: [localhost] => (item=[u'php70u-cli', u'php70u-common', u'php70u-fpm', u'php70u-fpm-nginx', u'php70u-json', u'php70u-mysqlnd', u'php70u-opcache', u'php70u-pdo', u'php70u-mbstring'])
+2017-08-16 09:28:57,801 p=1886 u=spence |  TASK [php70 : debug] ************************************************************************************************
+2017-08-16 09:28:57,819 p=1886 u=spence |  ok: [localhost] => {
+    "msg": "=> Enter configure stage"
+}
+2017-08-16 09:28:57,822 p=1886 u=spence |  TASK [php70 : stat] *************************************************************************************************
+2017-08-16 09:28:58,112 p=1886 u=spence |  ok: [localhost]
+2017-08-16 09:28:58,116 p=1886 u=spence |  TASK [php70 : debug] ************************************************************************************************
+2017-08-16 09:28:58,139 p=1886 u=spence |  ok: [localhost] => {
+    "msg": "==> Setting phg-fpm on CentOS system"
+}
+2017-08-16 09:28:58,143 p=1886 u=spence |  TASK [php70 : create socket directory for CentOS 6] *****************************************************************
+2017-08-16 09:28:58,162 p=1886 u=spence |  skipping: [localhost]
+2017-08-16 09:28:58,166 p=1886 u=spence |  TASK [php70 : Set the php.ini] **************************************************************************************
+2017-08-16 09:28:59,147 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:28:59,150 p=1886 u=spence |  TASK [php70 : Disable port listen] **********************************************************************************
+2017-08-16 09:28:59,541 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:28:59,544 p=1886 u=spence |  TASK [php70 : Enable socket listen] *********************************************************************************
+2017-08-16 09:28:59,831 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:28:59,834 p=1886 u=spence |  TASK [php70 : Set permissions on socket - owner] ********************************************************************
+2017-08-16 09:29:00,117 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:29:00,120 p=1886 u=spence |  TASK [php70 : Set permissions on socket - group] ********************************************************************
+2017-08-16 09:29:00,403 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:29:00,406 p=1886 u=spence |  TASK [php70 : Set permissions on socket - mode] *********************************************************************
+2017-08-16 09:29:00,691 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:29:00,694 p=1886 u=spence |  TASK [php70 : Set listen acl users] *********************************************************************************
+2017-08-16 09:29:00,982 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:29:00,985 p=1886 u=spence |  TASK [php70 : Setting the php-fpm fastcgi server of nginx] **********************************************************
+2017-08-16 09:29:01,852 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:29:01,856 p=1886 u=spence |  TASK [wordpress : Create WordPress database] ************************************************************************
+2017-08-16 09:29:02,309 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:29:02,313 p=1886 u=spence |  TASK [wordpress : Create WordPress database user] *******************************************************************
+2017-08-16 09:29:02,721 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:29:02,725 p=1886 u=spence |  TASK [wordpress : Create WordPress dir] *****************************************************************************
+2017-08-16 09:29:02,999 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:29:03,000 p=1886 u=spence |  RUNNING HANDLER [php70 : restart php7-fpm on centos] ****************************************************************
+2017-08-16 09:29:03,397 p=1886 u=spence |  changed: [localhost]
+2017-08-16 09:29:03,398 p=1886 u=spence |  PLAY RECAP **********************************************************************************************************
+2017-08-16 09:29:03,398 p=1886 u=spence |  localhost                  : ok=46   changed=20   unreachable=0    failed=0   
+2017-08-16 09:34:02,776 p=2452 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 09:34:02,807 p=2452 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 09:34:05,085 p=2452 u=spence |  fatal: [localhost]: FAILED! => {"changed": false, "failed": true, "module_stderr": "Shared connection to localhost closed.\r\n", "module_stdout": "sudo: a password is required\r\n", "msg": "MODULE FAILURE", "rc": 1}
+2017-08-16 09:34:05,086 p=2452 u=spence |  	to retry, use: --limit @/Users/spence/Downloads/blogsCapMix/devops/ansible/provision.retry
+
+2017-08-16 09:34:05,086 p=2452 u=spence |  PLAY RECAP **********************************************************************************************************
+2017-08-16 09:34:05,086 p=2452 u=spence |  localhost                  : ok=0    changed=0    unreachable=0    failed=1   
+2017-08-16 09:34:13,015 p=2481 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 09:34:13,044 p=2481 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 09:34:15,117 p=2481 u=spence |  ok: [localhost]
+2017-08-16 09:34:15,121 p=2481 u=spence |  TASK [wordpress : Create WordPress database] ************************************************************************
+2017-08-16 09:34:17,050 p=2481 u=spence |  ok: [localhost]
+2017-08-16 09:34:17,053 p=2481 u=spence |  TASK [wordpress : Create WordPress database user] *******************************************************************
+2017-08-16 09:34:18,965 p=2481 u=spence |  ok: [localhost]
+2017-08-16 09:34:18,969 p=2481 u=spence |  TASK [wordpress : Create WordPress dir] *****************************************************************************
+2017-08-16 09:34:20,970 p=2481 u=spence |  changed: [localhost]
+2017-08-16 09:34:20,971 p=2481 u=spence |  PLAY RECAP **********************************************************************************************************
+2017-08-16 09:34:20,972 p=2481 u=spence |  localhost                  : ok=4    changed=1    unreachable=0    failed=0   
+2017-08-16 09:37:39,495 p=2679 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 09:37:39,525 p=2679 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 09:37:42,028 p=2679 u=spence |  ok: [localhost]
+2017-08-16 09:37:42,032 p=2679 u=spence |  TASK [nginx : Define nginx_user.] ***********************************************************************************
+2017-08-16 09:37:42,056 p=2679 u=spence |  ok: [localhost]
+2017-08-16 09:37:42,060 p=2679 u=spence |  TASK [nginx : Enable nginx repo.] ***********************************************************************************
+2017-08-16 09:37:46,948 p=2679 u=spence |  ok: [localhost]
+2017-08-16 09:37:46,952 p=2679 u=spence |  TASK [nginx : Ensure nginx is installed.] ***************************************************************************
+2017-08-16 09:37:49,021 p=2679 u=spence |  ok: [localhost]
+2017-08-16 09:37:49,025 p=2679 u=spence |  TASK [nginx : Copy nginx root welcome configuration] ****************************************************************
+2017-08-16 09:37:54,670 p=2679 u=spence |  changed: [localhost]
+2017-08-16 09:37:54,673 p=2679 u=spence |  TASK [nginx : Copy standard nginx default conf] *********************************************************************
+2017-08-16 09:37:59,652 p=2679 u=spence |  ok: [localhost]
+2017-08-16 09:37:59,656 p=2679 u=spence |  TASK [nginx : Ensure nginx is started and enabled to start at boot.] ************************************************
+2017-08-16 09:38:01,781 p=2679 u=spence |  ok: [localhost]
+2017-08-16 09:38:01,781 p=2679 u=spence |  RUNNING HANDLER [nginx : restart nginx] *****************************************************************************
+2017-08-16 09:38:08,699 p=2679 u=spence |  changed: [localhost]
+2017-08-16 09:38:08,701 p=2679 u=spence |  PLAY RECAP **********************************************************************************************************
+2017-08-16 09:38:08,701 p=2679 u=spence |  localhost                  : ok=8    changed=2    unreachable=0    failed=0   
+2017-08-16 09:42:29,923 p=2797 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 09:42:29,953 p=2797 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 09:42:32,391 p=2797 u=spence |  ok: [localhost]
+2017-08-16 09:42:32,394 p=2797 u=spence |  TASK [nginx : Define nginx_user.] ***********************************************************************************
+2017-08-16 09:42:32,419 p=2797 u=spence |  ok: [localhost]
+2017-08-16 09:42:32,423 p=2797 u=spence |  TASK [nginx : Enable nginx repo.] ***********************************************************************************
+2017-08-16 09:42:37,094 p=2797 u=spence |  ok: [localhost]
+2017-08-16 09:42:37,098 p=2797 u=spence |  TASK [nginx : Ensure nginx is installed.] ***************************************************************************
+2017-08-16 09:42:39,071 p=2797 u=spence |  ok: [localhost]
+2017-08-16 09:42:39,074 p=2797 u=spence |  TASK [nginx : Copy nginx root welcome configuration] ****************************************************************
+2017-08-16 09:42:44,276 p=2797 u=spence |  changed: [localhost]
+2017-08-16 09:42:44,279 p=2797 u=spence |  TASK [nginx : Copy standard nginx default conf] *********************************************************************
+2017-08-16 09:42:48,960 p=2797 u=spence |  ok: [localhost]
+2017-08-16 09:42:48,964 p=2797 u=spence |  TASK [nginx : Ensure nginx is started and enabled to start at boot.] ************************************************
+2017-08-16 09:42:50,890 p=2797 u=spence |  ok: [localhost]
+2017-08-16 09:42:50,891 p=2797 u=spence |  RUNNING HANDLER [nginx : restart nginx] *****************************************************************************
+2017-08-16 09:42:52,727 p=2797 u=spence |  changed: [localhost]
+2017-08-16 09:42:52,729 p=2797 u=spence |  PLAY RECAP **********************************************************************************************************
+2017-08-16 09:42:52,729 p=2797 u=spence |  localhost                  : ok=8    changed=2    unreachable=0    failed=0   
+2017-08-16 09:46:46,623 p=2907 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 09:46:46,653 p=2907 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 09:46:49,226 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:46:49,230 p=2907 u=spence |  TASK [common : Install Common Packages] *****************************************************************************
+2017-08-16 09:46:51,228 p=2907 u=spence |  ok: [localhost] => (item=[u'ruby', u'git'])
+2017-08-16 09:46:51,231 p=2907 u=spence |  TASK [ssl : Ensure OpenSSL is installed] ****************************************************************************
+2017-08-16 09:46:53,131 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:46:53,135 p=2907 u=spence |  TASK [ssl : Ensure ssl folder exist] ********************************************************************************
+2017-08-16 09:46:55,018 p=2907 u=spence |  changed: [localhost]
+2017-08-16 09:46:55,024 p=2907 u=spence |  TASK [ssl : stat] ***************************************************************************************************
+2017-08-16 09:46:55,300 p=2907 u=spence |  ok: [localhost -> localhost]
+2017-08-16 09:46:55,305 p=2907 u=spence |  TASK [ssl : stat] ***************************************************************************************************
+2017-08-16 09:46:55,473 p=2907 u=spence |  ok: [localhost -> localhost]
+2017-08-16 09:46:55,478 p=2907 u=spence |  TASK [ssl : Test if privkey file is needed] *************************************************************************
+2017-08-16 09:46:55,496 p=2907 u=spence |  skipping: [localhost]
+2017-08-16 09:46:55,499 p=2907 u=spence |  TASK [ssl : Test if cert file is needed] ****************************************************************************
+2017-08-16 09:46:55,516 p=2907 u=spence |  skipping: [localhost]
+2017-08-16 09:46:55,520 p=2907 u=spence |  TASK [ssl : Creates Private directory] ******************************************************************************
+2017-08-16 09:46:57,223 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:46:57,227 p=2907 u=spence |  TASK [ssl : Generate RSA key] ***************************************************************************************
+2017-08-16 09:46:59,091 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:46:59,095 p=2907 u=spence |  TASK [ssl : RSA key file ownership] *********************************************************************************
+2017-08-16 09:47:00,860 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:47:00,864 p=2907 u=spence |  TASK [ssl : Generate CSR] *******************************************************************************************
+2017-08-16 09:47:02,688 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:47:02,693 p=2907 u=spence |  TASK [ssl : CSR file ownership] *************************************************************************************
+2017-08-16 09:47:04,388 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:47:04,392 p=2907 u=spence |  TASK [ssl : Generate self-signed SSL certificate] *******************************************************************
+2017-08-16 09:47:06,200 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:47:06,204 p=2907 u=spence |  TASK [ssl : Self-signed SSL certificate file ownership] *************************************************************
+2017-08-16 09:47:07,913 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:47:07,917 p=2907 u=spence |  TASK [ssl : Copy SSL private key file (if exists)] ******************************************************************
+2017-08-16 09:47:07,936 p=2907 u=spence |  skipping: [localhost]
+2017-08-16 09:47:07,939 p=2907 u=spence |  TASK [ssl : Copy SSL certificate file (if exists)] ******************************************************************
+2017-08-16 09:47:07,955 p=2907 u=spence |  skipping: [localhost]
+2017-08-16 09:47:07,959 p=2907 u=spence |  TASK [ssl : Copy SSL certificate data] ******************************************************************************
+2017-08-16 09:47:07,981 p=2907 u=spence |  skipping: [localhost] => (item=(censored due to no_log)) 
+2017-08-16 09:47:07,983 p=2907 u=spence |  skipping: [localhost] => (item=(censored due to no_log)) 
+2017-08-16 09:47:07,988 p=2907 u=spence |  TASK [ssl : Generate strong DHE parameter - https://weakdh.org/] ****************************************************
+2017-08-16 09:47:09,774 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:47:09,778 p=2907 u=spence |  TASK [mariadb : Install MariaDB package] ****************************************************************************
+2017-08-16 09:47:11,734 p=2907 u=spence |  ok: [localhost] => (item=[u'mariadb-server', u'MySQL-python', u'libselinux-python', u'libsemanage-python'])
+2017-08-16 09:47:11,740 p=2907 u=spence |  TASK [mariadb : Create Mysql configuration file] ********************************************************************
+2017-08-16 09:47:16,524 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:47:16,527 p=2907 u=spence |  TASK [mariadb : Create MariaDB log file] ****************************************************************************
+2017-08-16 09:47:18,536 p=2907 u=spence |  changed: [localhost]
+2017-08-16 09:47:18,540 p=2907 u=spence |  TASK [mariadb : Start MariaDB Service] ******************************************************************************
+2017-08-16 09:47:20,535 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:47:20,539 p=2907 u=spence |  TASK [nginx : Define nginx_user.] ***********************************************************************************
+2017-08-16 09:47:20,562 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:47:20,566 p=2907 u=spence |  TASK [nginx : Enable nginx repo.] ***********************************************************************************
+2017-08-16 09:47:25,654 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:47:25,657 p=2907 u=spence |  TASK [nginx : Ensure nginx is installed.] ***************************************************************************
+2017-08-16 09:47:27,873 p=2907 u=spence |  ok: [localhost]
+2017-08-16 09:47:27,876 p=2907 u=spence |  TASK [nginx : Copy nginx root welcome configuration] ****************************************************************
+2017-08-16 09:48:46,207 p=2907 u=spence |  fatal: [localhost]: FAILED! => {"failed": true, "msg": "Timeout (12s) waiting for privilege escalation prompt: "}
+2017-08-16 09:48:46,208 p=2907 u=spence |  	to retry, use: --limit @/Users/spence/Downloads/blogsCapMix/devops/ansible/provision.retry
+
+2017-08-16 09:48:46,208 p=2907 u=spence |  PLAY RECAP **********************************************************************************************************
+2017-08-16 09:48:46,209 p=2907 u=spence |  localhost                  : ok=21   changed=2    unreachable=0    failed=1   
+2017-08-16 09:49:10,308 p=3147 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 09:49:10,335 p=3147 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 09:50:15,226 p=3147 u=spence |   [ERROR]: User interrupted execution
+
+2017-08-16 09:50:20,360 p=3192 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 09:50:20,389 p=3192 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 09:53:49,252 p=3192 u=spence |   [ERROR]: User interrupted execution
+
+2017-08-16 10:01:38,143 p=3235 u=spence |  PLAY [Install MariaDB, Nginx, PHP70, & SSL] *************************************************************************
+2017-08-16 10:01:38,171 p=3235 u=spence |  TASK [Gathering Facts] **********************************************************************************************
+2017-08-16 10:01:39,014 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:39,018 p=3235 u=spence |  TASK [common : Install Common Packages] *****************************************************************************
+2017-08-16 10:01:39,686 p=3235 u=spence |  ok: [localhost] => (item=[u'ruby', u'git'])
+2017-08-16 10:01:39,690 p=3235 u=spence |  TASK [ssl : Ensure OpenSSL is installed] ****************************************************************************
+2017-08-16 10:01:40,077 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:40,080 p=3235 u=spence |  TASK [ssl : Ensure ssl folder exist] ********************************************************************************
+2017-08-16 10:01:40,433 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:40,439 p=3235 u=spence |  TASK [ssl : stat] ***************************************************************************************************
+2017-08-16 10:01:40,718 p=3235 u=spence |  ok: [localhost -> localhost]
+2017-08-16 10:01:40,724 p=3235 u=spence |  TASK [ssl : stat] ***************************************************************************************************
+2017-08-16 10:01:40,888 p=3235 u=spence |  ok: [localhost -> localhost]
+2017-08-16 10:01:40,891 p=3235 u=spence |  TASK [ssl : Test if privkey file is needed] *************************************************************************
+2017-08-16 10:01:40,907 p=3235 u=spence |  skipping: [localhost]
+2017-08-16 10:01:40,911 p=3235 u=spence |  TASK [ssl : Test if cert file is needed] ****************************************************************************
+2017-08-16 10:01:40,928 p=3235 u=spence |  skipping: [localhost]
+2017-08-16 10:01:40,932 p=3235 u=spence |  TASK [ssl : Creates Private directory] ******************************************************************************
+2017-08-16 10:01:41,178 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:41,182 p=3235 u=spence |  TASK [ssl : Generate RSA key] ***************************************************************************************
+2017-08-16 10:01:41,538 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:41,542 p=3235 u=spence |  TASK [ssl : RSA key file ownership] *********************************************************************************
+2017-08-16 10:01:41,789 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:41,793 p=3235 u=spence |  TASK [ssl : Generate CSR] *******************************************************************************************
+2017-08-16 10:01:42,042 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:42,046 p=3235 u=spence |  TASK [ssl : CSR file ownership] *************************************************************************************
+2017-08-16 10:01:42,300 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:42,304 p=3235 u=spence |  TASK [ssl : Generate self-signed SSL certificate] *******************************************************************
+2017-08-16 10:01:42,545 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:42,549 p=3235 u=spence |  TASK [ssl : Self-signed SSL certificate file ownership] *************************************************************
+2017-08-16 10:01:42,798 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:42,802 p=3235 u=spence |  TASK [ssl : Copy SSL private key file (if exists)] ******************************************************************
+2017-08-16 10:01:42,819 p=3235 u=spence |  skipping: [localhost]
+2017-08-16 10:01:42,823 p=3235 u=spence |  TASK [ssl : Copy SSL certificate file (if exists)] ******************************************************************
+2017-08-16 10:01:42,839 p=3235 u=spence |  skipping: [localhost]
+2017-08-16 10:01:42,842 p=3235 u=spence |  TASK [ssl : Copy SSL certificate data] ******************************************************************************
+2017-08-16 10:01:42,865 p=3235 u=spence |  skipping: [localhost] => (item=(censored due to no_log)) 
+2017-08-16 10:01:42,867 p=3235 u=spence |  skipping: [localhost] => (item=(censored due to no_log)) 
+2017-08-16 10:01:42,872 p=3235 u=spence |  TASK [ssl : Generate strong DHE parameter - https://weakdh.org/] ****************************************************
+2017-08-16 10:01:43,113 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:43,117 p=3235 u=spence |  TASK [mariadb : Install MariaDB package] ****************************************************************************
+2017-08-16 10:01:43,519 p=3235 u=spence |  ok: [localhost] => (item=[u'mariadb-server', u'MySQL-python', u'libselinux-python', u'libsemanage-python'])
+2017-08-16 10:01:43,523 p=3235 u=spence |  TASK [mariadb : Create Mysql configuration file] ********************************************************************
+2017-08-16 10:01:44,193 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:44,197 p=3235 u=spence |  TASK [mariadb : Create MariaDB log file] ****************************************************************************
+2017-08-16 10:01:44,435 p=3235 u=spence |  changed: [localhost]
+2017-08-16 10:01:44,438 p=3235 u=spence |  TASK [mariadb : Start MariaDB Service] ******************************************************************************
+2017-08-16 10:01:44,793 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:44,797 p=3235 u=spence |  TASK [nginx : Define nginx_user.] ***********************************************************************************
+2017-08-16 10:01:44,820 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:44,824 p=3235 u=spence |  TASK [nginx : Enable nginx repo.] ***********************************************************************************
+2017-08-16 10:01:45,503 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:45,506 p=3235 u=spence |  TASK [nginx : Ensure nginx is installed.] ***************************************************************************
+2017-08-16 10:01:45,888 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:45,892 p=3235 u=spence |  TASK [nginx : Copy nginx root welcome configuration] ****************************************************************
+2017-08-16 10:01:46,718 p=3235 u=spence |  changed: [localhost]
+2017-08-16 10:01:46,720 p=3235 u=spence |  TASK [nginx : Copy standard nginx default conf] *********************************************************************
+2017-08-16 10:01:47,393 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:47,397 p=3235 u=spence |  TASK [nginx : Ensure nginx is started and enabled to start at boot.] ************************************************
+2017-08-16 10:01:47,639 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:47,643 p=3235 u=spence |  TASK [php70 : Install requires package for use yum module] **********************************************************
+2017-08-16 10:01:48,034 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:48,038 p=3235 u=spence |  TASK [php70 : Install epel from remote repo on CentOS 7] ************************************************************
+2017-08-16 10:01:49,148 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:49,152 p=3235 u=spence |  TASK [php70 : Install remi from remote repo on CentOS 7] ************************************************************
+2017-08-16 10:01:50,099 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:50,103 p=3235 u=spence |  TASK [php70 : get ius repo install script] **************************************************************************
+2017-08-16 10:01:50,462 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:01:50,466 p=3235 u=spence |  TASK [php70 : Install ius from remote repo] *************************************************************************
+2017-08-16 10:02:02,725 p=3235 u=spence |  changed: [localhost]
+2017-08-16 10:02:02,729 p=3235 u=spence |  TASK [php70 : upgrade all packages] *********************************************************************************
+2017-08-16 10:02:14,091 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:14,094 p=3235 u=spence |  TASK [php70 : Install PHP Packages] *********************************************************************************
+2017-08-16 10:02:15,032 p=3235 u=spence |  ok: [localhost] => (item=[u'php70u-cli', u'php70u-common', u'php70u-fpm', u'php70u-fpm-nginx', u'php70u-json', u'php70u-mysqlnd', u'php70u-opcache', u'php70u-pdo', u'php70u-mbstring'])
+2017-08-16 10:02:15,036 p=3235 u=spence |  TASK [php70 : debug] ************************************************************************************************
+2017-08-16 10:02:15,055 p=3235 u=spence |  ok: [localhost] => {
+    "msg": "=> Enter configure stage"
+}
+2017-08-16 10:02:15,059 p=3235 u=spence |  TASK [php70 : stat] *************************************************************************************************
+2017-08-16 10:02:15,325 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:15,329 p=3235 u=spence |  TASK [php70 : debug] ************************************************************************************************
+2017-08-16 10:02:15,352 p=3235 u=spence |  ok: [localhost] => {
+    "msg": "==> Setting phg-fpm on CentOS system"
+}
+2017-08-16 10:02:15,356 p=3235 u=spence |  TASK [php70 : create socket directory for CentOS 6] *****************************************************************
+2017-08-16 10:02:15,376 p=3235 u=spence |  skipping: [localhost]
+2017-08-16 10:02:15,379 p=3235 u=spence |  TASK [php70 : Set the php.ini] **************************************************************************************
+2017-08-16 10:02:16,123 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:16,127 p=3235 u=spence |  TASK [php70 : Disable port listen] **********************************************************************************
+2017-08-16 10:02:16,491 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:16,495 p=3235 u=spence |  TASK [php70 : Enable socket listen] *********************************************************************************
+2017-08-16 10:02:16,756 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:16,760 p=3235 u=spence |  TASK [php70 : Set permissions on socket - owner] ********************************************************************
+2017-08-16 10:02:17,021 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:17,025 p=3235 u=spence |  TASK [php70 : Set permissions on socket - group] ********************************************************************
+2017-08-16 10:02:17,290 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:17,294 p=3235 u=spence |  TASK [php70 : Set permissions on socket - mode] *********************************************************************
+2017-08-16 10:02:17,553 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:17,556 p=3235 u=spence |  TASK [php70 : Set listen acl users] *********************************************************************************
+2017-08-16 10:02:17,818 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:17,822 p=3235 u=spence |  TASK [php70 : Setting the php-fpm fastcgi server of nginx] **********************************************************
+2017-08-16 10:02:18,528 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:18,532 p=3235 u=spence |  TASK [wordpress : Create WordPress database] ************************************************************************
+2017-08-16 10:02:18,938 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:18,942 p=3235 u=spence |  TASK [wordpress : Create WordPress database user] *******************************************************************
+2017-08-16 10:02:19,319 p=3235 u=spence |  ok: [localhost]
+2017-08-16 10:02:19,322 p=3235 u=spence |  TASK [wordpress : Create WordPress dir] *****************************************************************************
+2017-08-16 10:02:19,575 p=3235 u=spence |  changed: [localhost]
+2017-08-16 10:02:19,576 p=3235 u=spence |  RUNNING HANDLER [nginx : restart nginx] *****************************************************************************
+2017-08-16 10:02:19,877 p=3235 u=spence |  changed: [localhost]
+2017-08-16 10:02:19,879 p=3235 u=spence |  PLAY RECAP **********************************************************************************************************
+2017-08-16 10:02:19,879 p=3235 u=spence |  localhost                  : ok=46   changed=5    unreachable=0    failed=0   

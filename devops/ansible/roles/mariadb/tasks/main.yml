@@ -16,13 +16,13 @@
 
 # Chapman staging servers defaults to disabled. 
 # https://mariadb.com/kb/en/mariadb/what-to-do-if-mariadb-doesnt-start/#selinux 
-- name: Enable SELinux at next reboot
-  selinux:
-    state: permissive
-    policy: targeted
+# - name: Enable SELinux at next reboot
+#   selinux:
+#     state: permissive
+#     policy: targeted
 
-- name: Configure SELinux to start mysql on any port
-  seboolean: name=mysql_connect_any state=true persistent=yes
+# - name: Configure SELinux to start mysql on any port
+#   seboolean: name=mysql_connect_any state=true persistent=yes
 
 - name: Create Mysql configuration file
   template: src=my.cnf.j2 dest=/etc/my.cnf
@@ -34,4 +34,5 @@
 
 - name: Start MariaDB Service
   service: name=mariadb state=started enabled=yes
+
 

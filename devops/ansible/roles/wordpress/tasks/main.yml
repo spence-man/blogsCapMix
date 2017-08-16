@@ -1,12 +1,12 @@
 ---
 - name: Create WordPress dir
-  file: path=/usr/share/nginx/html/wordpress state=directory group=wimops owner=wimops mode="0755"
+  file: path=/usr/share/nginx/html/wordpress state=directory group=wimops owner=wimops mode=0755
 
 - name: download wp-cli
   get_url: url=https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar dest=/usr/local/bin/wp
 
 - name: update permissions of wp-cli to allow anyone to execute it
-  file: path=/usr/local/bin/wp mode="0755"
+  file: path=/usr/local/bin/wp mode=0755
 
 - name: restart nginx
   service: name=nginx state=restarted enabled=yes

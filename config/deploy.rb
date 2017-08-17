@@ -66,6 +66,13 @@ Disallow: /')
   	end
   end
 
+  desc "WordPress directory and file permissions"
+  task :wp_permissions do
+    on roles(:app) do
+      execute :chmod, "644 #{release_path}/public/wp-config.php"
+    end
+  end
+
   desc "Restart services"
   task :restart_services do
     on roles(:app) do
@@ -73,16 +80,16 @@ Disallow: /')
       sudo :service, :'php-fpm' , :restart
     end
   end
-  
+
   desc "Wp Core Install"
   task :core_install do
     on roles(:app) do
-      execute :chmod, "644 #{release_path}/public/wp-config.php"
       execute "cd '#{release_path}/public'; wp core install --url=http://localhost:80 --title=chap-press --admin_user=chappress --admin_password=password --admin_email=chappress@gmail.com"
     end
-  end
+  end    
 
   after :finished, :create_robots
+  after :finished, :wp_permissions
   after :finished, :restart_services
   after :finished, :core_install
   #after :finished, :clear_cache
